@@ -1,3 +1,30 @@
+let currentMethod = 'sin-probabilidad';
+
+function setActiveMethod(method) {
+    currentMethod = method;
+    
+    // Actualizar botones activos
+    document.querySelectorAll('.method-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    // Mostrar/ocultar secciones
+    document.getElementById('sin-probabilidad-section').style.display = 'none';
+    document.getElementById('con-probabilidad-section').style.display = 'none';
+    document.getElementById('teoria-juegos-section').style.display = 'none';
+    
+    document.getElementById(`${method}-section`).style.display = 'block';
+    
+    // Si volvemos a sin probabilidad, mostramos la tabla existente
+    if (method === 'sin-probabilidad' && document.getElementById('tabla-container').innerHTML) {
+        document.getElementById('btn-calcular').style.display = 'block';
+    }
+}
+
+// El resto de las funciones permanecen igual (generarTabla, calcular, calcularProbabilidad, etc.)
+// Solo asegúrate de que generarTabla() siga funcionando como antes
+
 function generarTabla() {
     let estados = document.getElementById('estados').value;
     let alternativas = document.getElementById('alternativas').value;

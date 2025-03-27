@@ -10,16 +10,36 @@
 <body>
     <div class="container">
         <h2>Toma de Decisiones</h2>
-        <label>Estados de naturaleza: </label>
-        <input type="number" id="estados" min="1" placeholder="Cantidad">
-        <label>Alternativas: </label>
-        <input type="number" id="alternativas" min="1" placeholder="Cantidad">
-        <button onclick="generarTabla()">Generar Matriz</button>
         
-        <div id="tabla-container"></div>
-        <button onclick="calcular()" style="display:none;">Calcular</button>
-        <div id="resultados"></div>
+        <div class="method-selector">
+            <button class="method-btn active" onclick="setActiveMethod('sin-probabilidad')">Sin Probabilidad</button>
+            <button class="method-btn" onclick="setActiveMethod('con-probabilidad')">Con Probabilidad</button>
+            <button class="method-btn" onclick="setActiveMethod('teoria-juegos')">Teoría de Juegos</button>
+        </div>
+        
+        <div id="sin-probabilidad-section">
+            <div class="input-group">
+                <label>Estados de naturaleza:</label>
+                <input type="number" id="estados" min="1" placeholder="Cantidad">
+                <label>Alternativas:</label>
+                <input type="number" id="alternativas" min="1" placeholder="Cantidad">
+                <button onclick="generarTabla()">Generar Matriz</button>
+            </div>
+            
+            <div id="tabla-container"></div>
+            <button id="btn-calcular" style="display:none;" onclick="calcular()">Calcular</button>
+            <div id="resultados"></div>
+        </div>
+        
+        <div id="con-probabilidad-section" style="display:none;">
+            <!-- Este contenido se generará dinámicamente cuando sea necesario -->
+            <div id="probabilidad-container"></div>
+            <div id="resultados-probabilidad"></div>
+        </div>
+        
+        <div id="teoria-juegos-section" style="display:none;">
+            <p style="text-align:center; margin-top:20px;">Funcionalidad de Teoría de Juegos en desarrollo</p>
+        </div>
     </div>
-
 </body>
 </html>
